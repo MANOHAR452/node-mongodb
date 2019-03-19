@@ -1,5 +1,6 @@
-cd /app
-cat > docker-compose.yml <<'EOF'
+sudo mkdir /app
+sudo cd /app
+sudo cat > docker-compose.yml <<'EOF'
 version: '2.2'
 services:
   mongo:
