@@ -1,4 +1,4 @@
-version: '3'
+version: '2.2'
 services:
   mongo:
     image: mongo
@@ -6,11 +6,18 @@ services:
       - "27017:27017"
     restart: always 
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev 
+    image: manohar4524/node-webapp:1.0.0
     ports: 
-      - "3000:3000"
+      - 3000
     environment:
       - MONGO_HOST=mongo
+    scale: 3
     restart: always
+  lb:
+    image: dockercloud/haproxy
+    ports:
+      - 80:80
+    links:
+      - web
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
