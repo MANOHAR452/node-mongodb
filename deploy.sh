@@ -1,6 +1,6 @@
 sudo mkdir /app
 sudo cd /app
-sudo cat > docker-compose.yml <<'EOF'
+sudo cat > /app/docker-compose.yml <<'EOF'
 version: '2.2'
 services:
   mongo:
@@ -27,4 +27,5 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock 
 EOF
+docker-compose down
 docker-compose up -d 
