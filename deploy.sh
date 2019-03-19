@@ -6,9 +6,7 @@ services:
   mongo:
     image: mongo
     ports: 
-      - "27017:27017"
-    volumes:
-      - /data/db:/data/db  
+      - "27017:27017" 
     restart: always 
   web:
     image: manohar4524/node-mongodb:latest
